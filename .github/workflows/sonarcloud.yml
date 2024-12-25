@@ -29,10 +29,11 @@ jobs:
 
       - name: Install SonarCloud Scanner
         run: |
-          curl -sSLo sonarscanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
+          curl -sSLo sonarscanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip
           unzip sonarscanner.zip
-          sudo mv sonar-scanner-4.7.0.2747-linux /opt/sonar-scanner
-          export PATH=$PATH:/opt/sonar-scanner/bin
+          sudo mv sonar-scanner-4.8.0.2856-linux /opt/sonar-scanner
+          echo "SONAR_SCANNER_HOME=/opt/sonar-scanner" >> $GITHUB_ENV
+          echo "PATH=\$PATH:/opt/sonar-scanner/bin" >> $GITHUB_ENV
 
       - name: SonarCloud Scan
         env:

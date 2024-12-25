@@ -34,6 +34,7 @@ jobs:
           sudo mv sonar-scanner-4.8.0.2856-linux /opt/sonar-scanner
           echo "SONAR_SCANNER_HOME=/opt/sonar-scanner" >> $GITHUB_ENV
           echo "PATH=\$PATH:/opt/sonar-scanner/bin" >> $GITHUB_ENV
+        shell: bash # Utilise explicitement bash
 
       - name: SonarCloud Scan
         env:
@@ -44,3 +45,4 @@ jobs:
             -Dsonar.organization=manalbendali \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=$SONAR_TOKEN
+        shell: bash # Utilise explicitement bash
